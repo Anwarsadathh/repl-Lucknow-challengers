@@ -312,6 +312,35 @@
 </head>
 <body class="bg-gray-50">
     
+
+  <!-- Payment QR Modal -->
+<div id="payment-modal"
+     class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-[90%] p-4 md:p-6 text-center relative">
+    <button type="button"
+            id="close-modal"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none">
+      &times;
+    </button>
+
+    <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">
+      Scan &amp; Pay for Trial Registration
+    </h3>
+    <p class="text-[11px] md:text-xs text-gray-600 mb-3">
+      Scan the QR code using any UPI app, complete the payment, then enter your transaction ID in the form.
+    </p>
+
+    <div class="border rounded-xl p-2 md:p-3 bg-gray-50 inline-block">
+      <img src="images/qr.jpeg" alt="Payment QR" class="w-48 h-48 object-contain mx-auto">
+    </div>
+
+    <p class="mt-3 text-[11px] md:text-xs text-gray-600">
+      Keep a screenshot of the payment for verification on the trial day.
+    </p>
+  </div>
+</div>
+
+
 <!-- Header -->
 <header class="bg-white header-shadow sticky top-0 z-50">
     <div class="container mx-auto px-4">
@@ -1057,7 +1086,7 @@
 
       <!-- Registration Form -->
       <div class="bg-white rounded-2xl shadow-xl md:shadow-2xl p-4 md:p-6 lg:p-8 border-t-4 border-orange-500">
-        <form action="#" method="POST" class="space-y-5 md:space-y-6">
+        <form action="" method="POST" class="space-y-5 md:space-y-6" id="trial-form">
 
           <!-- Row 1: Name and Mobile -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
@@ -1109,13 +1138,13 @@
 
             <!-- Guardian/Parents Mobile Number -->
             <div>
-              <label for="guardian_mobile" class="block text-xs md:text-sm font-semibold text-gray-700 mb-1.5">
+              <label for="guardianmobile" class="block text-xs md:text-sm font-semibold text-gray-700 mb-1.5">
                 Guardian/Parents Mobile Number <span class="text-red-600">*</span>
               </label>
               <input
                 type="tel"
-                id="guardian_mobile"
-                name="guardian_mobile"
+                id="guardianmobile"
+                name="guardianmobile"
                 required
                 pattern="[0-9]{10}"
                 class="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all text-xs md:text-sm"
@@ -1288,16 +1317,52 @@
             </div>
           </div>
 
+          <!-- Payment instructions checkbox -->
+          <div class="mt-4 border border-orange-200 rounded-lg p-3 md:p-4 bg-orange-50">
+            <label class="flex items-start gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="paymentConfirmed"
+                name="paymentConfirmed"
+                class="mt-1 w-4 h-4 text-orange-600 border-gray-300 focus:ring-orange-500"
+                required
+              >
+              <span class="text-xs md:text-sm text-gray-700">
+                I have read the payment instructions, scanned the QR code, and will complete the payment for REPL Cricket Academy Trials.
+              </span>
+            </label>
+          </div>
+
+          <!-- Transaction ID -->
+          <div class="mt-3">
+            <label for="transactionId" class="block text-xs md:text-sm font-semibold text-gray-700 mb-1.5">
+              UPI / Transaction ID <span class="text-red-600">*</span>
+            </label>
+            <input
+              type="text"
+              id="transactionId"
+              name="transactionId"
+              required
+              class="w-full px-3 py-2.5 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all text-xs md:text-sm"
+              placeholder="Enter payment transaction / UTR number"
+            >
+            <p class="mt-1 text-[11px] md:text-xs text-gray-500">
+              Complete the payment using the QR code and paste the exact transaction / UTR number from your UPI app.
+            </p>
+          </div>
+
           <!-- Submit Button -->
           <div class="pt-2 md:pt-3">
-            <button
-              type="submit"
-              class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 md:py-3.5 px-4 md:px-6 rounded-lg font-semibold md:font-bold text-sm md:text-base shadow-md md:shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
-              Submit Registration
-              <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </button>
+          <button
+  id="submit-btn"
+  type="submit"
+  class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 md:py-3.5 px-4 md:px-6 rounded-lg font-semibold md:font-bold text-sm md:text-base shadow-md md:shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
+  <span id="submit-text">Submit Registration</span>
+  <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+  </svg>
+</button>
+
           </div>
 
         </form>
@@ -1306,6 +1371,87 @@
     </div>
   </div>
 </section>
+
+<!-- Payment QR Modal -->
+<div id="payment-modal"
+     class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-[90%] p-4 md:p-6 text-center relative">
+    <button type="button"
+            id="close-modal"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl leading-none">
+      &times;
+    </button>
+
+    <h3 class="text-base md:text-lg font-bold text-gray-900 mb-2">
+      Scan &amp; Pay for Trial Registration
+    </h3>
+    <p class="text-[11px] md:text-xs text-gray-600 mb-3">
+      Scan the QR code using any UPI app, complete the payment, then enter your transaction ID in the form.
+    </p>
+
+    <div class="border rounded-xl p-2 md:p-3 bg-gray-50 inline-block">
+      <!-- adjust path as per your project structure -->
+      <img src="images/qr.jpeg" alt="Payment QR" class="w-48 h-48 object-contain mx-auto">
+    </div>
+
+    <p class="mt-3 text-[11px] md:text-xs text-gray-600">
+      Keep a screenshot of the payment for verification on the trial day.
+    </p>
+  </div>
+</div>
+
+<!-- Thank You Modal -->
+<div id="thankyou-modal"
+     class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+  <div
+    class="relative max-w-md w-[90%] bg-gradient-to-br from-orange-500 via-orange-600 to-amber-500 rounded-3xl shadow-2xl overflow-hidden text-white">
+    
+    <!-- Decorative glow -->
+    <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+    <div class="absolute -bottom-16 -left-8 w-52 h-52 bg-black/10 rounded-full blur-3xl"></div>
+
+    <div class="relative px-6 py-7 md:px-8 md:py-9">
+      <!-- Icon -->
+      <div class="flex items-center justify-center mb-4">
+        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/15 flex items-center justify-center shadow-lg border border-white/30">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <h3 class="text-xl md:text-2xl font-extrabold text-center mb-2 tracking-wide">
+        Registration Successful!
+      </h3>
+      <p class="text-xs md:text-sm text-orange-50/90 text-center mb-4">
+        Thank you for registering for the <span class="font-semibold">REPL Cricket Academy Trials</span>.
+      </p>
+      <p class="text-[11px] md:text-xs text-orange-50/95 text-center mb-5">
+        Your details and payment reference have been recorded.  
+        You will receive reporting time and further instructions on your registered mobile and email.
+      </p>
+
+      <!-- Highlight -->
+      <div class="bg-black/10 border border-white/25 rounded-2xl px-4 py-3 mb-5">
+        <p class="text-[11px] md:text-xs leading-relaxed text-orange-50">
+          Please reach the ground <span class="font-semibold">30 minutes before reporting time</span>  
+          and carry your cricket kit, payment proof, and one ID document.
+        </p>
+      </div>
+
+      <!-- Button -->
+      <div class="flex justify-center">
+        <button id="thankyou-close"
+                class="px-6 py-2.5 md:px-7 md:py-3 rounded-full bg-white text-orange-600 font-semibold text-xs md:text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+          Got it, see you at trials!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- Registration CTA -->
@@ -1454,5 +1600,115 @@
         updateDots();
     });
 </script>
+<script>
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycsseSeHgyNGuMnxd3zhGKHQVxqdQg6uaedKfTjDft1LZWpfx9zEU_J9So3h/exec';
+  const form = document.getElementById('trial-form');
+  const paymentCheckbox = document.getElementById('paymentConfirmed');
+  const modal = document.getElementById('payment-modal');
+  const closeModalBtn = document.getElementById('close-modal');
+  const thankyouModal = document.getElementById('thankyou-modal');
+  const thankyouClose = document.getElementById('thankyou-close');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+
+  // Show QR modal when checkbox is checked
+  paymentCheckbox.addEventListener('change', () => {
+    if (paymentCheckbox.checked) {
+      modal.classList.remove('hidden');
+    }
+  });
+
+  // Close payment modal
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.add('hidden');
+  });
+
+  // Close thank-you modal
+  thankyouClose.addEventListener('click', () => {
+    thankyouModal.classList.add('hidden');
+  });
+  thankyouModal.addEventListener('click', (e) => {
+    if (e.target === thankyouModal) thankyouModal.classList.add('hidden');
+  });
+
+  function setSubmitting(isSubmitting) {
+    if (isSubmitting) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      submitText.textContent = 'Submitting...';
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+      submitText.textContent = 'Submit Registration';
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const name = document.getElementById('name').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const guardian = document.getElementById('guardianmobile').value.trim();
+    const tx = document.getElementById('transactionId').value.trim();
+    const expertiseSelected = form.querySelector('input[name="expertise"]:checked');
+
+    if (name.length < 3) {
+      alert('Please enter a valid full name (at least 3 characters).');
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(mobile)) {
+      alert('Please enter a valid 10-digit mobile number.');
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(guardian)) {
+      alert('Please enter a valid 10-digit guardian mobile number.');
+      return;
+    }
+    if (!expertiseSelected) {
+      alert('Please select your expertise.');
+      return;
+    }
+    if (!paymentCheckbox.checked) {
+      alert('Please confirm that you have made the payment.');
+      return;
+    }
+    if (tx.length < 6) {
+      alert('Please enter a valid transaction / UTR ID.');
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      setSubmitting(true);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+
+      // Success: reset form and show thank-you modal
+      form.reset();
+      thankyouModal.classList.remove('hidden');
+    } catch (err) {
+      console.error(err);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  });
+</script>
+
+
 </body>
 </html>
