@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPL Cricket Academy Trials 2025 | Gateway to Professional Cricket</title>
+    <meta name="description" content="Join REPL Cricket Academy Trials on 31st Jan - 1st Feb 2025. Open to all ages. Professional coaching, competitive exposure, and pathway to Lucknow Premier League.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+    
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    .hero-gradient {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background-image: url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1920');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
+        overflow: hidden;
+    }
+
+    .hero-gradient::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(8, 23, 61, 0.88) 0%,
+            rgba(16, 44, 108, 0.82) 45%,
+            rgba(28, 78, 165, 0.78) 100%
+        );
+        z-index: 1;
+    }
+
+    .hero-gradient > * {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .cricket-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url('https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=1920') center/cover no-repeat fixed;
+    }
+    
+    .cricket-bg-2 {
+        background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                    url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1920') center/cover no-repeat;
+    }
+    
+    .cricket-pattern {
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    }
+    
+    .text-gradient {
+        background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .text-gradient-yellow {
+        background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .text-gradient-blue {
+        background: linear-gradient(135deg, #0c4da2 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .card-hover {
+        transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .pulse-green {
+        animation: pulse-yellow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse-yellow {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.7;
+        }
+    }
+    
+    .cricket-ball {
+        background: radial-gradient(circle at 30% 30%, #ff4444, #cc0000);
+        border: 2px solid #fff;
+    }
+    
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+    }
+    
+    .video-container iframe,
+    .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header-shadow {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .mobile-menu.active {
+        max-height: 500px;
+    }
+    
+    .cricket-icon {
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+    
+    .stats-overlay {
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.9) 0%, rgba(255, 179, 0, 0.9) 100%);
+    }
+    
+    .image-overlay {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .image-overlay::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .image-overlay:hover::after {
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="bg-gray-50">
+    
+<!-- Header -->
+<header class="bg-white header-shadow sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <img src="images/REPL_1.png" alt="REPL Cricket Academy" class="h-10 md:h-12">
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="https://replsports.com/" class="text-gray-700 font-medium transition text-sm hover:text-yellow-500">Home</a>
+                <a href="https://replsports.com/about-us/overview/" class="text-gray-700 font-medium transition text-sm hover:text-yellow-500">About Us</a>
+                <a href="https://replsports.com/repl-cricket-academy-lucknow/" class="text-gray-700 font-medium transition text-sm hover:text-yellow-500">Academy</a>
+                <a href="https://replsports.com/coaches/" class="text-gray-700 font-medium transition text-sm hover:text-yellow-500">Coaches</a>
+                <a href="https://replsports.com/contact/" class="text-gray-700 font-medium transition text-sm hover:text-yellow-500">Contact</a>
+            </nav>
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#register" class="bg-yellow-500 text-gray-900 px-5 py-2.5 rounded-full font-semibold transition text-sm hover:bg-yellow-600">
+                    Register Now
+                </a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2 rounded-lg transition bg-yellow-500 bg-opacity-10 hover:bg-opacity-20">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="rounded-xl p-4 mt-3 mb-3 shadow-lg bg-gradient-to-br from-yellow-50 to-white border-l-4 border-yellow-500">
+                <nav class="flex flex-col space-y-2">
+                    <a href="https://replsports.com/" class="flex items-center text-gray-700 font-medium py-2.5 px-3 rounded-lg transition text-sm hover:bg-yellow-50 hover:text-yellow-600">
+                        <i class="fas fa-home mr-3 w-5 text-yellow-500"></i>Home
+                    </a>
+                    <a href="https://replsports.com/about-us/overview/" class="flex items-center text-gray-700 font-medium py-2.5 px-3 rounded-lg transition text-sm hover:bg-yellow-50 hover:text-yellow-600">
+                        <i class="fas fa-info-circle mr-3 w-5 text-yellow-500"></i>About Us
+                    </a>
+                    <a href="https://replsports.com/repl-cricket-academy-lucknow/" class="flex items-center text-gray-700 font-medium py-2.5 px-3 rounded-lg transition text-sm hover:bg-yellow-50 hover:text-yellow-600">
+                        <i class="fas fa-graduation-cap mr-3 w-5 text-yellow-500"></i>Academy
+                    </a>
+                    <a href="https://replsports.com/coaches/" class="flex items-center text-gray-700 font-medium py-2.5 px-3 rounded-lg transition text-sm hover:bg-yellow-50 hover:text-yellow-600">
+                        <i class="fas fa-chalkboard-teacher mr-3 w-5 text-yellow-500"></i>Coaches
+                    </a>
+                    <a href="https://replsports.com/contact/" class="flex items-center text-gray-700 font-medium py-2.5 px-3 rounded-lg transition text-sm hover:bg-yellow-50 hover:text-yellow-600">
+                        <i class="fas fa-envelope mr-3 w-5 text-yellow-500"></i>Contact
+                    </a>
+                    <div class="my-2 border-t border-yellow-200"></div>
+                    <a href="#register" class="text-white px-6 py-3 rounded-full font-bold text-center text-sm shadow-lg transform transition flex items-center justify-center bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700">
+                        <i class="fas fa-cricket text-lg mr-2"></i>Register for Trials
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-gradient text-white relative overflow-hidden" style="min-height: auto; height: auto;">
+    <div class="absolute top-10 right-10 w-48 h-16 opacity-30 hidden lg:block bg-gradient-to-r from-transparent via-yellow-500 to-transparent transform -rotate-12 rounded-full blur-sm"></div>
+    <div class="absolute bottom-20 left-10 w-40 h-12 opacity-25 hidden lg:block bg-gradient-to-r from-transparent via-yellow-500 to-transparent transform rotate-6 rounded-full blur-sm"></div>
+    
+    <!-- Challengers Logo Badge (Top Right) -->
+    <div class="absolute top-4 right-4 md:top-8 md:right-8 z-20 hidden lg:block">
+        <img src="images/repllucknow.png" alt="REPL Lucknow Challengers" class="h-20 lg:h-24 xl:h-28 drop-shadow-2xl opacity-90 hover:opacity-100 transition">
+    </div>
+    
+    <div class="absolute inset-0 opacity-10 hidden md:block">
+        <div class="absolute top-20 left-10 w-32 h-32 cricket-ball rounded-full animate-bounce"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 cricket-ball rounded-full"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative z-10">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+            
+            <div class="text-center md:text-left">
+                <p class="text-xs md:text-sm lg:text-base font-semibold mb-2 md:mb-3 tracking-wider uppercase text-yellow-500">
+                    REPL CRICKET ACADEMY TRIALS
+                </p>
+                
+                <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 leading-tight">
+                    A gateway to professional cricket opportunities
+                </h1>
+                
+                <p class="text-xs md:text-sm lg:text-base mb-4 md:mb-6 text-gray-300 leading-relaxed">
+                    Join REPL Cricket Academy Trials to train, compete, and progress in professional cricket.
+                </p>
+                
+                <div class="p-3 md:p-4 rounded-r-lg mb-5 md:mb-6 bg-yellow-500 bg-opacity-20 border-l-4 border-yellow-500">
+                    <p class="text-xs md:text-sm lg:text-base font-medium flex items-start md:items-center text-yellow-500">
+                        <i class="fas fa-check-circle mr-2 md:mr-3 text-base md:text-lg mt-0.5 md:mt-0"></i>
+                        Anyone can participate, irrespective of age or playing experience.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-2 md:gap-3 mb-5 md:mb-6">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-xl border border-white border-opacity-20">
+                        <p class="text-[10px] md:text-xs text-gray-400 mb-1 uppercase">Trial Dates</p>
+                        <p class="text-xs md:text-sm lg:text-base font-bold">31st January</p>
+                        <p class="text-xs md:text-sm lg:text-base font-bold">& 1st February</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-xl border border-white border-opacity-20">
+                        <p class="text-[10px] md:text-xs text-gray-400 mb-1 uppercase">Venue</p>
+                        <p class="text-xs md:text-sm lg:text-base font-bold leading-tight">REPL Cricket Academy Ground</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-xl border border-white border-opacity-20">
+                        <p class="text-[10px] md:text-xs text-gray-400 mb-1 uppercase">Reporting Time</p>
+                        <p class="text-xs md:text-sm font-bold leading-tight">Will be shared after registration</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <a href="#register" class="bg-yellow-500 text-gray-900 px-6 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-base font-bold transition transform hover:scale-105 shadow-2xl text-center hover:bg-yellow-600">
+                        Register for Trials <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <p class="text-xs md:text-sm text-gray-400 self-center">
+                        Limited slots • First-come, first-served basis
+                    </p>
+                </div>
+            </div>
+            
+            <div class="hidden md:grid grid-cols-2 gap-3 lg:gap-4">
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600" alt="Batsman in action" class="w-full h-48 lg:h-56 object-cover">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=600" alt="Fielding" class="w-full h-48 lg:h-56 object-cover">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600" alt="Bowler in action" class="w-full h-48 lg:h-56 object-cover">
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1589487391730-58f20eb2c308?w=600" alt="Academy players" class="w-full h-48 lg:h-56 object-cover">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Cricket Action Gallery Section -->
+<section class="py-8 md:py-12 lg:py-16 cricket-bg-2">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-6 md:mb-12">
+            <h2 class="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 md:mb-4">
+                Experience World-Class <span class="text-gradient-blue">Cricket Facilities</span>
+            </h2>
+            
+            <div class="flex items-center justify-center gap-1.5 md:gap-2 mb-3 md:mb-6">
+                <div class="w-8 md:w-12 h-0.5 bg-blue-900"></div>
+                <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                <div class="w-12 md:w-16 h-0.5 md:h-1 rounded-full bg-gradient-to-r from-blue-900 to-yellow-500"></div>
+                <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                <div class="w-8 md:w-12 h-0.5 bg-blue-900"></div>
+            </div>
+            
+            <p class="text-xs md:text-base lg:text-lg text-gray-700 px-4">State-of-the-art infrastructure for professional cricket training</p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 mb-3 md:mb-6">
+                <div class="rounded-lg md:rounded-2xl overflow-hidden shadow-lg card-hover image-overlay">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800" alt="Cricket Ground" class="w-full h-32 md:h-64 lg:h-80 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-2 md:p-6 text-white z-10 bg-gradient-to-t from-black/70 to-transparent">
+                        <h3 class="text-xs md:text-lg lg:text-xl font-bold">Professional Ground</h3>
+                        <p class="text-[10px] md:text-sm hidden md:block">International standard pitch</p>
+                    </div>
+                </div>
+                <div class="rounded-lg md:rounded-2xl overflow-hidden shadow-lg card-hover image-overlay">
+                    <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=800" alt="Cricket Training" class="w-full h-32 md:h-64 lg:h-80 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-2 md:p-6 text-white z-10 bg-gradient-to-t from-black/70 to-transparent">
+                        <h3 class="text-xs md:text-lg lg:text-xl font-bold">Expert Coaching</h3>
+                        <p class="text-[10px] md:text-sm hidden md:block">Certified professional trainers</p>
+                    </div>
+                </div>
+                <div class="rounded-lg md:rounded-2xl overflow-hidden shadow-lg card-hover image-overlay hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800" alt="Cricket Practice" class="w-full h-32 md:h-64 lg:h-80 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-2 md:p-6 text-white z-10 bg-gradient-to-t from-black/70 to-transparent">
+                        <h3 class="text-xs md:text-lg lg:text-xl font-bold">Modern Equipment</h3>
+                        <p class="text-[10px] md:text-sm">Latest training gear & nets</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equal Heights - Much Smaller Logo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+                <!-- Left: Cricket Ground Image -->
+                <div class="rounded-lg md:rounded-2xl overflow-hidden shadow-lg card-hover h-48 md:h-80 lg:h-96">
+                    <img src="images/cricket-practice-3.jpg" alt="REPL Sports Cricket Ground" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Right: REPL Lucknow Challengers Logo - MUCH SMALLER -->
+                <div class="rounded-lg md:rounded-2xl overflow-hidden shadow-lg card-hover h-48 md:h-80 lg:h-96 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-6 md:p-8">
+                    <div class="w-full max-w-[140px] md:max-w-[220px] lg:max-w-[260px]">
+                        <img src="images/repllucknow.png" alt="REPL Lucknow Challengers Logo" class="w-full h-auto drop-shadow-2xl hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Stats Section -->
+<section class="py-12 md:py-16 lg:py-20 cricket-bg text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 lg:gap-8 text-center">
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl border border-white border-opacity-20">
+                    <i class="fas fa-users text-2xl md:text-4xl lg:text-5xl mb-2 md:mb-4 text-yellow-500"></i>
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">500+</h3>
+                    <p class="text-xs md:text-base lg:text-lg">Players Trained</p>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl border border-white border-opacity-20">
+                    <i class="fas fa-trophy text-2xl md:text-4xl lg:text-5xl text-yellow-400 mb-2 md:mb-4"></i>
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">50+</h3>
+                    <p class="text-xs md:text-base lg:text-lg">Championships Won</p>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl border border-white border-opacity-20">
+                    <i class="fas fa-chalkboard-teacher text-2xl md:text-4xl lg:text-5xl text-blue-400 mb-2 md:mb-4"></i>
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">15+</h3>
+                    <p class="text-xs md:text-base lg:text-lg">Expert Coaches</p>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl border border-white border-opacity-20">
+                    <i class="fas fa-star text-2xl md:text-4xl lg:text-5xl text-orange-400 mb-2 md:mb-4"></i>
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">10+</h3>
+                    <p class="text-xs md:text-base lg:text-lg">Years Excellence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About REPL Sports -->
+<section id="details" class="py-12 md:py-16 lg:py-20 bg-white cricket-pattern">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+                    About REPL Sports
+                </h2>
+                <div class="flex items-center justify-center gap-1.5 md:gap-2 mb-3 md:mb-6">
+                    <div class="w-8 md:w-12 h-0.5 bg-blue-900"></div>
+                    <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                    <div class="w-12 md:w-16 h-0.5 md:h-1 rounded-full bg-gradient-to-r from-blue-900 to-yellow-500"></div>
+                    <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                    <div class="w-8 md:w-12 h-0.5 bg-blue-900"></div>
+                </div>
+                <p class="text-xs md:text-sm lg:text-base text-gray-600 max-w-3xl mx-auto px-4 mb-6">
+                    Initiative of Rudrabhishek Trust for Sports and Education (RTSE) - A Not-for-Profit Organization
+                </p>
+                
+               
+            </div>
+            
+            <div class="grid lg:grid-cols-5 gap-6 md:gap-8">
+               <div class="lg:col-span-2 flex items-center justify-center bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 rounded-xl md:rounded-2xl shadow-xl p-6 md:p-8 lg:p-12 border border-orange-200">
+    <img src="images/REPL_1.png" alt="REPL Cricket Academy Logo" class="w-full max-w-[250px] md:max-w-[350px] lg:max-w-[400px] h-auto object-contain drop-shadow-lg">
+</div>
+
+                <div class="lg:col-span-3 flex flex-col justify-between">
+                    <div class="mb-6">
+                        <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
+                            REPL Sports has the singular agenda of bringing <strong>'sports'</strong> at the centre stage of everyone's lifestyle. We want to inspire and facilitate people's shift from drawing-room confined recreation activities to real classic sports tradition in-ground, in-stadium and in-club activities.
+                        </p>
+                        <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
+                            Sports, where there is physical activity as well as real interaction with other people which gives us physical fitness, emotional fulfilment and fosters a sense of comradery. <strong>In sports, you win something every time, even if you lose a game.</strong>
+                        </p>
+                    </div>
+                    
+                    <div class="p-5 md:p-6 rounded-xl md:rounded-2xl bg-gradient-to-br from-yellow-500/10 to-yellow-500/5">
+                        <h3 class="text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-4">Our Cricket Ecosystem</h3>
+                        <ul class="space-y-3 md:space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-cricket text-base md:text-lg mr-3 mt-1 flex-shrink-0 text-yellow-500"></i>
+                                <div>
+                                    <strong class="text-sm md:text-base text-gray-900 block">Comprehensive Development Platform</strong>
+                                    <p class="text-xs md:text-sm text-gray-600">Long-term player growth through structured coaching</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-trophy text-base md:text-lg mr-3 mt-1 flex-shrink-0 text-yellow-500"></i>
+                                <div>
+                                    <strong class="text-sm md:text-base text-gray-900 block">Competitive Exposure</strong>
+                                    <p class="text-xs md:text-sm text-gray-600">Performance-based opportunities at professional level</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-users text-base md:text-lg mr-3 mt-1 flex-shrink-0 text-yellow-500"></i>
+                                <div>
+                                    <strong class="text-sm md:text-base text-gray-900 block">League Team Ownership</strong>
+                                    <p class="text-xs md:text-sm text-gray-600">REPL Lucknow Challengers in Lucknow Premier League</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REPL Lucknow Challengers Section with Video Carousel -->
+<section class="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1920" alt="Cricket Background" class="w-full h-full object-cover">
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
+                    Meet The <span class="text-gradient-yellow">REPL Lucknow Challengers</span>
+                </h2>
+                <div class="flex items-center justify-center gap-1.5 md:gap-2 mb-3 md:mb-6">
+                    <div class="w-8 md:w-12 h-0.5 bg-white opacity-40"></div>
+                    <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                    <div class="w-12 md:w-16 h-0.5 md:h-1 rounded-full bg-gradient-to-r from-yellow-500 to-white"></div>
+                    <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                    <div class="w-8 md:w-12 h-0.5 bg-white opacity-40"></div>
+                </div>
+                <p class="text-base md:text-lg lg:text-xl text-gray-300 italic font-medium">
+                    "Shaping Future Stars"
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
+                <div>
+                    <p class="text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">
+                        REPL Sports proudly steps into the Lucknow Premier League with the launch of its dynamic new franchise — <strong class="text-base md:text-lg text-yellow-500">REPL Lucknow Challengers</strong>. Built on passion, performance, and purpose, the team represents a bold commitment to nurturing cricketing talent and shaping the future stars of the game.
+                    </p>
+                    <p class="text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">
+                        The franchise blends professional excellence with grassroots development, providing a competitive platform for emerging players to showcase their skills, gain exposure, and grow under a high-performance sporting ecosystem.
+                    </p>
+                    <p class="text-sm md:text-base text-gray-300 leading-relaxed mb-6 md:mb-8">
+                        With Lucknow at its heart, the Challengers embody <strong class="text-base md:text-lg text-yellow-500">resilience, ambition, and the fighting spirit</strong> of the city. As the lights shine bright and a new chapter begins, REPL Lucknow Challengers is ready to take on the league with confidence, discipline, and an unyielding desire to win.
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-3 md:gap-4">
+                        <div class="text-center bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-lg md:rounded-xl">
+                            <i class="fas fa-shield-alt text-2xl md:text-3xl mb-2 text-yellow-500"></i>
+                            <p class="text-xs md:text-sm font-semibold">Team Spirit</p>
+                        </div>
+                        <div class="text-center bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-lg md:rounded-xl">
+                            <i class="fas fa-fire text-2xl md:text-3xl text-orange-400 mb-2"></i>
+                            <p class="text-xs md:text-sm font-semibold">Passion</p>
+                        </div>
+                        <div class="text-center bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-lg md:rounded-xl">
+                            <i class="fas fa-bolt text-2xl md:text-3xl text-yellow-400 mb-2"></i>
+                            <p class="text-xs md:text-sm font-semibold">Excellence</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Carousel -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-6 rounded-xl md:rounded-2xl border border-white border-opacity-20">
+                    <div class="relative">
+                        <!-- Video 1 -->
+                        <div id="video-1" class="video-slide">
+                            <div class="video-container rounded-lg overflow-hidden mb-3 md:mb-4">
+                                <video controls poster="images/repllucknow.png" class="w-full" id="video-player-1">
+                                    <source src="videos/RLC2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="text-center text-xs md:text-sm lg:text-base text-gray-300 mb-4">
+                                <i class="fas fa-play-circle mr-2 text-yellow-500"></i>REPL Lucknow Challengers Highlights
+                            </p>
+                        </div>
+                        
+                        <!-- Video 2 -->
+                        <div id="video-2" class="video-slide hidden">
+                            <div class="video-container rounded-lg overflow-hidden mb-3 md:mb-4">
+                                <video controls poster="images/Logo-REPL-Cricket-Academy.png" class="w-full" id="video-player-2">
+                                    <source src="videos/RAVISINGHREPL.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="text-center text-xs md:text-sm lg:text-base text-gray-300 mb-4">
+                                <i class="fas fa-play-circle mr-2 text-yellow-500"></i>Ravi Singh - REPL Journey
+                            </p>
+                        </div>
+                        
+                        <!-- Navigation Arrows -->
+                        <button onclick="changeVideo(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-yellow-500 bg-opacity-80 hover:bg-opacity-100 text-gray-900 w-10 h-10 rounded-full flex items-center justify-center transition z-10 shadow-lg">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button onclick="changeVideo(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-yellow-500 bg-opacity-80 hover:bg-opacity-100 text-gray-900 w-10 h-10 rounded-full flex items-center justify-center transition z-10 shadow-lg">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Dots Navigation -->
+                    <div class="flex items-center justify-center gap-3">
+                        <button onclick="goToVideo(0)" class="video-dot w-3 h-3 rounded-full bg-yellow-500 transition-all duration-300" data-index="0"></button>
+                        <button onclick="goToVideo(1)" class="video-dot w-3 h-3 rounded-full bg-white bg-opacity-30 hover:bg-opacity-50 transition-all duration-300" data-index="1"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What Makes Trials Unique -->
+<section class="py-12 md:py-16 lg:py-20 bg-white cricket-pattern">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8 md:mb-12 lg:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+                    What Makes These Trials <span class="text-gradient-yellow">Unique?</span>
+                </h2>
+                <div class="flex items-center justify-center gap-1.5 md:gap-2 mb-3 md:mb-6">
+                    <div class="w-8 md:w-12 h-0.5 bg-blue-900"></div>
+                    <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                    <div class="w-12 md:w-16 h-0.5 md:h-1 rounded-full bg-gradient-to-r from-blue-900 to-yellow-500"></div>
+                    <div class="w-2 md:w-3 h-2 md:h-3 rounded-full bg-red-600 border-2 border-white shadow-md"></div>
+                    <div class="w-8 md:w-12 h-0.5 bg-blue-900"></div>
+                </div>
+                <p class="text-sm md:text-base lg:text-lg text-gray-600 px-4">Professional evaluation meets grassroots development</p>
+            </div>
+            
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+                <div class="bg-white p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg card-hover text-center border-t-4 border-yellow-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6 bg-yellow-500 bg-opacity-15">
+                        <i class="fas fa-clipboard-check text-xl md:text-2xl lg:text-3xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-sm md:text-base lg:text-xl font-bold text-gray-900 mb-2 md:mb-3">Professional Evaluation</h3>
+                    <p class="text-xs md:text-sm lg:text-base text-gray-600">Assessment in a structured, professional cricket setup with certified coaches</p>
+                </div>
+                
+                <div class="bg-white p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg card-hover text-center border-t-4 border-blue-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6">
+                        <i class="fas fa-dumbbell text-blue-600 text-xl md:text-2xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-sm md:text-base lg:text-xl font-bold text-gray-900 mb-2 md:mb-3">Holistic Focus</h3>
+                    <p class="text-xs md:text-sm lg:text-base text-gray-600">Technical skills, fitness, and game awareness development programs</p>
+                </div>
+                
+                <div class="bg-white p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg card-hover text-center border-t-4 border-orange-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6">
+                        <i class="fas fa-graduation-cap text-orange-600 text-xl md:text-2xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-sm md:text-base lg:text-xl font-bold text-gray-900 mb-2 md:mb-3">Structured Training</h3>
+                    <p class="text-xs md:text-sm lg:text-base text-gray-600">Exposure to professional coaching and competitive standards</p>
+                </div>
+                
+                <div class="bg-white p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg card-hover text-center border-t-4 border-purple-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6">
+                        <i class="fas fa-route text-purple-600 text-xl md:text-2xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-sm md:text-base lg:text-xl font-bold text-gray-900 mb-2 md:mb-3">Clear Pathway</h3>
+                    <p class="text-xs md:text-sm lg:text-base text-gray-600">Development opportunities within REPL Sports ecosystem</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trial Details -->
+<section class="py-10 md:py-12 lg:py-16 relative overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1920" alt="Cricket Background" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800 opacity-95"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center text-white mb-6 md:mb-8 lg:mb-10">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-3">Trial Information</h2>
+                <p class="text-xs md:text-sm lg:text-base">Everything you need to know before registering</p>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl md:rounded-2xl p-3 md:p-6 lg:p-8 border border-white border-opacity-20">
+                <div class="space-y-3 md:space-y-4">
+                    <div class="bg-white text-gray-900 p-3 md:p-5 lg:p-6 rounded-lg md:rounded-xl shadow-lg">
+                        <div class="flex items-start">
+                            <div class="p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0 bg-yellow-500 bg-opacity-15">
+                                <i class="fas fa-calendar-alt text-base md:text-xl lg:text-2xl text-yellow-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-600 mb-1">Dates</p>
+                                <p class="text-sm md:text-lg lg:text-xl font-bold text-gray-900">31st January - 1st February 2025</p>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-600 mt-1">Two full days of comprehensive evaluation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white text-gray-900 p-3 md:p-5 lg:p-6 rounded-lg md:rounded-xl shadow-lg">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-blue-600 text-base md:text-xl lg:text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-600 mb-1">Venue</p>
+                                <p class="text-sm md:text-lg lg:text-xl font-bold text-gray-900 mb-1 md:mb-2">REPL Cricket Academy Ground</p>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-700">Paarth Republic Township, Lucknow-Kanpur Road</p>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-700">Sarojini Nagar, Lucknow - 226008</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white text-gray-900 p-3 md:p-5 lg:p-6 rounded-lg md:rounded-xl shadow-lg">
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0">
+                                <i class="fas fa-clock text-orange-600 text-base md:text-xl lg:text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-600 mb-1">Reporting Time</p>
+                                <p class="text-sm md:text-base lg:text-lg font-bold text-gray-900">Will be shared after registration</p>
+                                <p class="text-[10px] md:text-xs lg:text-sm text-gray-600 mt-1">You'll receive detailed instructions via email & SMS</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-3 md:p-5 lg:p-6 rounded-lg md:rounded-xl text-white text-center bg-gradient-to-r from-yellow-500 to-yellow-600">
+                        <i class="fas fa-info-circle text-xl md:text-2xl lg:text-3xl mb-2 md:mb-3 text-gray-900"></i>
+                        <p class="text-sm md:text-base lg:text-lg font-semibold mb-2 text-gray-900">Important Note</p>
+                        <p class="text-[10px] md:text-xs lg:text-sm text-gray-800 leading-relaxed">Players demonstrating skill, discipline, and match temperament will be prepared for higher competitive environments and potential selection to REPL Lucknow Challengers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Registration CTA -->
+<section id="register" class="py-8 md:py-12 lg:py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1920" alt="Cricket" class="w-full h-full object-cover">
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-5xl mx-auto text-center">
+          
+            
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
+                Ready to Take Your Cricket Journey Forward?
+            </h2>
+            <p class="text-xs md:text-sm lg:text-base text-gray-300 mb-6 md:mb-8 font-medium px-4">
+                Join hundreds of aspiring cricketers and showcase your talent at REPL Cricket Academy Trials
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-3 md:gap-4 lg:gap-6 mb-6 md:mb-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-5 lg:p-6 rounded-xl border border-white border-opacity-20">
+                    <h3 class="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">What You Get</h3>
+                    <div class="space-y-2 md:space-y-3 text-left">
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-check-circle text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0 text-yellow-500"></i>
+                            <span>Professional evaluation by certified coaches</span>
+                        </p>
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-check-circle text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0 text-yellow-500"></i>
+                            <span>Comprehensive skill assessment report</span>
+                        </p>
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-check-circle text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0 text-yellow-500"></i>
+                            <span>Access to world-class training facilities</span>
+                        </p>
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-check-circle text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0 text-yellow-500"></i>
+                            <span>Personalized development pathway</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg p-4 md:p-5 lg:p-6 rounded-xl border border-white border-opacity-20">
+                    <h3 class="text-base md:text-lg lg:text-xl font-bold mb-3 md:mb-4">Who Can Apply</h3>
+                    <div class="space-y-2 md:space-y-3 text-left">
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-user-check text-blue-400 text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0"></i>
+                            <span>Open to all age groups</span>
+                        </p>
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-user-check text-blue-400 text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0"></i>
+                            <span>No prior experience required</span>
+                        </p>
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-user-check text-blue-400 text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0"></i>
+                            <span>Passionate about cricket</span>
+                        </p>
+                        <p class="flex items-start text-xs md:text-sm">
+                            <i class="fas fa-user-check text-blue-400 text-sm md:text-base mr-2 md:mr-3 mt-0.5 flex-shrink-0"></i>
+                            <span>Committed to professional growth</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="https://replsports.com/contact/" class="inline-block bg-yellow-500 text-gray-900 px-6 py-3 md:px-8 md:py-4 rounded-full text-sm md:text-base lg:text-lg font-bold transition transform hover:scale-105 shadow-2xl mb-5 md:mb-6 hover:bg-yellow-600">
+                Register for Trials Now <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            
+            <div class="bg-white bg-opacity-10 backdrop-blur-lg p-3 md:p-4 rounded-xl inline-block border border-white border-opacity-20">
+                <p class="text-gray-300 text-xs md:text-sm flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0">
+                    <span>
+                        <i class="fas fa-phone mr-1 md:mr-2 text-yellow-500"></i>
+                        <strong>Call:</strong> +91 7706900218
+                    </span>
+                    <span class="hidden sm:inline mx-2 md:mx-3">|</span>
+                    <span>
+                        <i class="fas fa-envelope mr-1 md:mr-2 text-yellow-500"></i>
+                        <strong>Email:</strong> info@replsports.com
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-900 py-8">
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- Logos -->
+        <div class="flex items-center justify-center gap-6 md:gap-8 lg:gap-12 flex-wrap mb-6">
+            <img src="images/Logo-REPL-Cricket-Academy.png" alt="REPL Cricket Academy" class="h-12 md:h-16 opacity-90 hover:opacity-100 hover:scale-105 transition">
+            <div class="w-px h-10 md:h-12 bg-slate-700"></div>
+            <img src="images/repllucknow.png" alt="REPL Lucknow Challengers" class="h-12 md:h-16 opacity-90 hover:opacity-100 hover:scale-105 transition">
+        </div>
+        
+        <!-- Footer Text -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-300 border-t border-slate-800 pt-6">
+            <p>© 2025 REPL Sports • Rudrabhishek Trust for Sports and Education (RTSE)</p>
+            <p>REPL Cricket Academy Ground • Lucknow</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (mobileMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Video Carousel
+    let currentVideoIndex = 0;
+    const totalVideos = 2;
+
+    function pauseAllVideos() {
+        document.querySelectorAll('video').forEach(video => {
+            video.pause();
+        });
+    }
+
+    function updateDots() {
+        const dots = document.querySelectorAll('.video-dot');
+        dots.forEach((dot, index) => {
+            if (index === currentVideoIndex) {
+                dot.classList.remove('bg-white', 'bg-opacity-30');
+                dot.classList.add('bg-yellow-500');
+            } else {
+                dot.classList.remove('bg-yellow-500');
+                dot.classList.add('bg-white', 'bg-opacity-30');
+            }
+        });
+    }
+
+    function showVideo(index) {
+        pauseAllVideos();
+        
+        for (let i = 0; i < totalVideos; i++) {
+            const video = document.getElementById(`video-${i + 1}`);
+            if (video) {
+                video.classList.add('hidden');
+            }
+        }
+        
+        const selectedVideo = document.getElementById(`video-${index + 1}`);
+        if (selectedVideo) {
+            selectedVideo.classList.remove('hidden');
+        }
+        
+        currentVideoIndex = index;
+        updateDots();
+    }
+
+    function changeVideo(direction) {
+        let newIndex = currentVideoIndex + direction;
+        
+        if (newIndex >= totalVideos) {
+            newIndex = 0;
+        } else if (newIndex < 0) {
+            newIndex = totalVideos - 1;
+        }
+        
+        showVideo(newIndex);
+    }
+
+    function goToVideo(index) {
+        showVideo(index);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateDots();
+    });
+</script>
+</body>
+</html>
